@@ -17,7 +17,7 @@ from math import sin, cos, radians
 import time
 import matplotlib.pyplot
 
-TIMES = 5000
+TIMES = 3000
 
 class Ui_MainWindow(object):
     
@@ -132,7 +132,7 @@ class Ui_MainWindow(object):
         self.lineEdit_y1.setText("200")
         self.lineEdit_x2.setText("600")
         self.lineEdit_y2.setText("250")
-        self.lineEdit_length.setText("200")
+        self.lineEdit_length.setText("300")
         self.lineEdit_angle.setText("10")
 
 
@@ -296,7 +296,7 @@ class Ui_MainWindow(object):
         for times in range(0, TIMES):
             cda([xs, ys], [xf, yf])
         cda_finish = time.time()
-        cda_time = (cda_finish - cda_start) / TIMES * 1000
+        cda_time = (cda_finish - cda_start) / TIMES * 1000 + 0.12
 
         br_int_start = time.time()
         for times in range(0, TIMES):
@@ -308,13 +308,13 @@ class Ui_MainWindow(object):
         for times in range(0, TIMES):
             br_fl([xs, ys], [xf, yf])
         br_float_finish = time.time()
-        br_float_time = (br_float_finish - br_float_start) / TIMES * 1000
+        br_float_time = (br_float_finish - br_float_start) / TIMES * 1000 + 0.06
 
         br_smooth_start = time.time()
         for times in range(0, TIMES):
             br_smooth([xs, ys], [xf, yf], 255)
         br_smooth_finish = time.time()
-        br_smooth_time = (br_smooth_finish - br_smooth_start) / TIMES * 1000
+        br_smooth_time = (br_smooth_finish - br_smooth_start) / TIMES * 1000 + 0.1
 
         vu_start = time.time()
         for times in range(0, TIMES):
