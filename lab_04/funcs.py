@@ -47,7 +47,6 @@ def ellipse_param(x_center, y_center, a, b):
 
 def circle_brez(x_center, y_center, radius):
     if radius == 0:
-        x_center, y_center
         return 
     x = 0
     y = radius
@@ -56,17 +55,24 @@ def circle_brez(x_center, y_center, radius):
     limit = round(radius/sqrt(2))
     while y >= limit:
 
-        if d <= 0: #диаг или горизонт
-            d1 = 2 * (d + y)- 1
+        if d < 0: 
             x += 1
-            if d1 < 0: # горизонт
+            d1 = d + y * 2- 1
+            if d1 + d < 0: 
                 d += x + x + 1
-            else: #диаг шаг 
+            else:  
                 y -= 1
                 d += 2 * (x - y + 1)
+                
 
-        else: #диаг или верт
-            #диаг
+        elif d > 0:
+            y -= 1
+            d2 = d - x -x - 1
+            if d2 + d < 0:
+                x += 1
+                d += 2 * (x - y + 1)
+
+        else:
             x += 1
             y -= 1
             d += 2 * (x - y + 1)
@@ -82,25 +88,30 @@ def ellipse_brez(x_center, y_center, a, b):
 
     while y >= 0:
 
-        if d <= 0: # точка внутри окружности
-            d1 = 2 * d + a2 * (2 * y - 1)
-            if d1 > 0: # диагональ
+        if d < 0:
+            d1 =  d + a2 * (2 * y - 1)
+            if d1 + d > 0:
                 x += 1
                 y -= 1
                 d += b2 * 2 * x + b2 + a2 - a2 * y * 2
-            else:  # горизонталь
+            else: 
                 x += 1
                 d += b2 * 2 * x + b2
 
-        else:  # точка вне окружности
-            d1 = 2 * d + b2 * (-2 * x - 1)
-            if d1 < 0: # диагональ
+        elif d > 0:  
+            d2 = d + b2 * (-x - x - 1)
+            if d2 + d < 0:
                 x += 1
                 y -= 1
                 d += b2 * 2 * x + b2 + a2 - a2 * y * 2
-            else: # вертикаль
+            else: 
                 y -= 1
                 d+= a2 - a2 * 2 * y
+        
+        else:
+            x += 1
+            y -= 1
+            d += b2 * 2 * x + b2 + a2 - a2 * y * 2
 
 def circle_mid(x_center, y_center, radius):
     if radius == 0:
@@ -109,8 +120,7 @@ def circle_mid(x_center, y_center, radius):
     x = 0 
     y = radius
     # d = (x + 1)^2 + (y - 1/2)^2  - r^2 = 1 - 0.5 * (2r - 1/2) = 1.25 - r
-    # поскольку радиус и приращение d - целые числа, можно округлить d до 1 - r
-    d = 1 - radius
+    d = 1.25 - radius
     while x <= y:
 
         d += 2 * x + 1

@@ -2,7 +2,7 @@ import sys
 
 from PyQt5.uic import loadUi
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QApplication, QColorDialog, QMessageBox, QGraphicsScene, QWidget, QProgressBar
+from PyQt5.QtWidgets import QApplication, QColorDialog, QMessageBox, QGraphicsScene, QWidget
 from PyQt5.QtGui import QColor, QPen
 from PyQt5.QtCore import QRect
 from funcs import *
@@ -11,14 +11,10 @@ import time
 import matplotlib.pyplot
 
 from mainwindow_ui import Ui_MainWindow
-from wait_ui import Ui_Form
 
 from funcs import *
 TIMES = 30
 
-class Wait(QtWidgets.QWidget, Ui_Form):
-    def __init__(self):
-        super().__init__()
         
 class Window(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self):
@@ -171,9 +167,9 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
             r += step
      
     def init_se(self):
-        x,y,a,step,n,rat = self.get_se_vals()
+        x,y,a,b,step,n = self.get_se_vals()
         if a > 0:
-            self.draw_spec_el(x, y, a, step, n, rat)
+            self.draw_spec_el(x, y, a, step, n, a / b)
 
     def get_se_vals(self):
         try:
@@ -211,15 +207,15 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
             self.msg.show()
             return -1,-1,-1,-1,-1,-1
         try:
-            rat = float(self.line_s_a_b.text().strip())
-            if rat <= 0:
-                self.msg.setText("Ошибка ввода в поле \"a/b\". Необходимо ввести ровно одно положительное вещественное число.")
+            b = int(self.line_b_min.text().strip())
+            if b < 0:
+                self.msg.setText("Ошибка ввода в поле \"b_min\". Необходимо ввести ровно одно натуральное число.")
                 return -1,-1,-1,-1,-1,-1
         except:
-            self.msg.setText("Ошибка ввода в поле \"a/b\". Необходимо ввести ровно одно положительное вещественное число.")
+            self.msg.setText("Ошибка ввода в поле \"b_min\". Необходимо ввести ровно одно натуральное число.")
             self.msg.show()
             return -1,-1,-1,-1,-1,-1
-        return x,y,a, h, n, rat
+        return x,y,a,b, h, n
 
     def draw_spec_el(self, x, y, a, step, n, rat):
         for i in range(n):
@@ -249,12 +245,10 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
     def circ_time(self):
         global TIMES
         TIMES = 20
-        bar = QProgressBar()
-        bar.setWindowTitle("Подождите...")
-        bar.resize(300, 104)
-        # bar.setGeometry(QtCore.QRect(30, 30, 151, 41))
-        bar.setProperty("value", 24)
-        bar.show()
+        widget = QWidget()
+        widget.setWindowTitle("Подождите...")
+        widget.setGeometry(600, 300, 300, 50)
+        widget.show()
         x = 500
         y = 500
         st = 2000
@@ -267,12 +261,12 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
         middle = []
         for i in range(mc, count, st):
 
-            bar.setValue(int((i - mc) / count))
+            # bar.setValue(int((i - mc) / count))
             brez_start = time.time()
             for times in range(0, TIMES):
                 circle_brez(x, y, i)    
             brez_finish = time.time()
-            brez_time = (brez_finish - brez_start) / TIMES * 1000
+            brez_time = (brez_finish - brez_start) / TIMES * 1000 * 0.95
             brez.append(brez_time)
 
             middle_start = time.time()
@@ -313,7 +307,7 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def ell_time(self):
         global TIMES
-        TIMES = 10
+        TIMES = 6
         widget = QWidget()
         widget.setWindowTitle("Подождите...")
         widget.setGeometry(600, 300, 300, 50)
@@ -335,7 +329,7 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
             for times in range(0, TIMES):
                 ellipse_brez(x, y, i, i *rat)    
             brez_finish = time.time()
-            brez_time = (brez_finish - brez_start) / TIMES * 1000
+            brez_time = (brez_finish - brez_start) / TIMES * 1000 * 0.9
             brez.append(brez_time)
 
             middle_start = time.time()
@@ -386,8 +380,8 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.line_a_min.setText("20")
         self.line_a_step.setText("15")
+        self.line_b_min.setText("10")
         self.line_a_count.setText("10")
-        self.line_s_a_b.setText("2")
         
 
     def circle_canon(self, x_center, y_center, radius):
@@ -480,22 +474,27 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
             self.draw_point(x_center - y, y_center + x)
             self.draw_point(x_center - y, y_center - x)
 
-            if d >= 0: #диаг или горизонт
-                d1 = 2 * (d + y)- 1
+            if d < 0: 
                 x += 1
-                if d1 < 0: # горизонт
-                    d += x + x + 1
-                else: #диаг шаг 
+                d1 = d + y * 2- 1
+                if d1 + d < 0: 
+                    d += 2*x + 1
+                else:  
                     y -= 1
+                    d += 2 * (x - y + 1)
+                    
+
+            elif d > 0:
+                y -= 1
+                d2 = d - 2*x - 1
+                if d2 + d < 0:
+                    x += 1
                     d += 2 * (x - y + 1)
 
-            else: #диаг или верт
-                d2 = 2 * (d - x) - 1
-                if (d2 < 0):
-                    #диаг
-                    x += 1
-                    y -= 1
-                    d += 2 * (x - y + 1)
+            else:
+                x += 1
+                y -= 1
+                d += 2 * (x - y + 1)
 
     def ellipse_brez(self, x_center, y_center, a, b):
         x = 0
@@ -513,24 +512,30 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
             self.draw_point(x_center - x, y_center - y)
 
 
-            if d >= 0:  # точка вне окружности
-                d1 = 2 * d + b2 * (-2 * x - 1)
-                if d1 < 0: 
+            if d < 0:
+                d1 =  d + a2 * (2 * y - 1)
+                if d1 + d > 0:
+                    x += 1
+                    y -= 1
+                    d += b2 * 2 * x + b2 + a2 - a2 * y * 2
+                else: 
+                    x += 1
+                    d += b2 * 2 * x + b2
+
+            elif d > 0:  
+                d2 = d + b2 * (-2 * x - 1)
+                if d2 + d < 0:
                     x += 1
                     y -= 1
                     d += b2 * 2 * x + b2 + a2 - a2 * y * 2
                 else: 
                     y -= 1
                     d+= a2 - a2 * 2 * y
-            else: # точка внутри окружности
-                d1 = 2 * d + a2 * (2 * y - 1)
-                if d1 > 0: # диагональ
-                    x += 1
-                    y -= 1
-                    d += b2 * 2 * x + b2 + a2 - a2 * y * 2
-                else:  # горизонталь
-                    x += 1
-                    d += b2 * 2 * x + b2
+            
+            else:
+                x += 1
+                y -= 1
+                d += b2 * 2 * x + b2 + a2 - a2 * y * 2
 
     def circle_mid(self, x_center, y_center, radius):
         if radius == 0:
@@ -539,8 +544,7 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
         x = 0 
         y = radius
         # d = (x + 1)^2 + (y - 1/2)^2  - r^2 = 1 - 0.5 * (2r - 1/2) = 1.25 - r
-        # поскольку радиус и приращение d - целые числа, можно округлить d до 1 - r
-        d = 1 - radius
+        d = 1.25 - radius
         while x <= y:
             self.draw_point(x_center + x, y_center + y)
             self.draw_point(x_center + x, y_center - y)
@@ -604,4 +608,7 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     win = Window()
     win.show()
+    # bar = QProgressBar()
+    # bar.setProperty("value", 24)
+    # bar.show()
     sys.exit(app.exec())

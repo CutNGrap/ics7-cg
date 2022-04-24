@@ -568,7 +568,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Шаг a</string>
+     <string>b_min</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -592,7 +592,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLineEdit" name="line_a_step">
+   <widget class="QLineEdit" name="line_b_min">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -670,7 +670,7 @@
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="line_s_a_b">
+   <widget class="QLineEdit" name="line_a_step">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -703,7 +703,7 @@
      </font>
     </property>
     <property name="text">
-     <string>a/b</string>
+     <string>Шаг a</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

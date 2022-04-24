@@ -89,7 +89,6 @@ class Ui_MainWindow(object):
         self.color_indicate.setAutoFillBackground(False)
         self.color_indicate.setTextInteractionFlags(QtCore.Qt.NoTextInteraction)
         self.color_indicate.setObjectName("color_indicate")
-        self.color_indicate.setStyleSheet("background-color: rgb(0, 0, 0)")
         self.but_draw_line = QtWidgets.QPushButton(self.centralwidget)
         self.but_draw_line.setGeometry(QtCore.QRect(10, 240, 261, 28))
         self.but_draw_line.setObjectName("but_draw_line")
@@ -253,8 +252,6 @@ class Ui_MainWindow(object):
             ccos = cos(rad)
             self.draw_line(self.centre[0], self.centre[1], self.centre[0] + round(radius * ccos), self.centre[1] + round(radius * ssin))
 
-
-        
     def draw(self, dots, intens):
         color = QColor(self.color)
         pen = QPen(color)
