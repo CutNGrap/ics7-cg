@@ -115,6 +115,13 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
         pix.convertFromImage(self.image)
         self.scene.addPixmap(pix)
         
+    def draw_one_pix(self):
+        self.draw_line(20, 100, 22, 100)
+        self.draw_line(22, 100, 22, 800)
+        self.draw_line(22, 800, 20, 800)
+        self.draw_line(20, 800, 20, 100)
+        self.seed = (21, 400)
+        self.fill_seed()
 
     def clear(self):
         self.scene.clear()
@@ -157,6 +164,7 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
         self.but_color_edge_def.clicked.connect(self.color_edge_def)
 
         self.but_add_dot.clicked.connect(self.init_dot_add)
+        self.but_close_2.clicked.connect(self.draw_one_pix)
 
     def init_dot_add(self):
         x,y = self.get_dot_vals()
@@ -193,6 +201,7 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.close_dot==None:
             self.msg.setText("Замкнуть фигуру невозможно. Вы еще не ввели ни одной точки!")
             self.msg.show()
+            return
         self.draw_line(self.close_dot[0], self.close_dot[1], self.last_x, self.last_y)
         self.close_dot = None
         self.cur_len = 0

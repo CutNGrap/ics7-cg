@@ -424,12 +424,12 @@
      <rect>
       <x>10</x>
       <y>310</y>
-      <width>201</width>
+      <width>291</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>Рисовать границу</string>
+     <string>Добавить точку границы</string>
     </property>
    </widget>
    <widget class="QRadioButton" name="rad_dot">
@@ -442,7 +442,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Выбор затравочного пикселя</string>
+     <string>Добавить затравочный пиксель</string>
     </property>
    </widget>
    <widget class="QPushButton" name="but_close_2">

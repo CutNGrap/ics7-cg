@@ -148,7 +148,7 @@ class Ui_MainWindow(object):
         self.lab_centre_6.setAlignment(QtCore.Qt.AlignCenter)
         self.lab_centre_6.setObjectName("lab_centre_6")
         self.rad_edge = QtWidgets.QRadioButton(self.centralwidget)
-        self.rad_edge.setGeometry(QtCore.QRect(10, 310, 201, 20))
+        self.rad_edge.setGeometry(QtCore.QRect(10, 310, 291, 20))
         self.rad_edge.setObjectName("rad_edge")
         self.rad_dot = QtWidgets.QRadioButton(self.centralwidget)
         self.rad_dot.setGeometry(QtCore.QRect(10, 340, 241, 20))
@@ -202,7 +202,7 @@ class Ui_MainWindow(object):
         self.checkBox.setText(_translate("MainWindow", "Включить задержку"))
         self.lab_centre_6.setText(_translate("MainWindow", "Изменения цвета контура и фона\n"
 "вступают в силу после очистки экрана"))
-        self.rad_edge.setText(_translate("MainWindow", "Рисовать границу"))
-        self.rad_dot.setText(_translate("MainWindow", "Выбор затравочного пикселя"))
+        self.rad_edge.setText(_translate("MainWindow", "Добавить точку границы"))
+        self.rad_dot.setText(_translate("MainWindow", "Добавить затравочный пиксель"))
         self.but_close_2.setText(_translate("MainWindow", "Нарисовать область шириной\n"
 "в один пиксель"))
