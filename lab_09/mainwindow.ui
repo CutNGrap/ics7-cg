@@ -375,19 +375,6 @@
 отсекателя</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox_fake_edges">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>770</y>
-      <width>311</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Удалять ложные ребра</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="but_close_polygon">
     <property name="geometry">
      <rect>

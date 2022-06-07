@@ -344,11 +344,11 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
         self.redraw_all()
         self.pen.setColor(self.color_clipped)
         self.pen.setWidth(2)
-        self.sh_cut(self.polygon, self.clip, self.centre, self.checkBox_fake_edges.isChecked())
+        self.sh_cut(self.polygon, self.clip, self.centre)
         self.pen.setWidth(1)
 
 
-    def sh_cut(self, poly, cl, centre, flag_delete):
+    def sh_cut(self, poly, cl, centre):
         ncl = len(cl)
         npoly = len(poly)
         for i in range(ncl):
@@ -380,22 +380,9 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
             nq+=1
             npoly, poly = nq, deepcopy(q)
 
-        self.draw_edges(poly, flag_delete)
+        self.draw_edges(poly)
     
-    def draw_edges(self, poly, flag_delete):
-        n = len(poly) - 1
-        if flag_delete:
-            for i in range(n):
-                point_begin = min(poly[i], poly[i + 1])
-                point_end = max(poly[i], poly[i + 1])
-                list_of_intersections = []
-
-                for j in range(n):
-                    if ((j < i) or (j > i + 1)) and check_fit(poly[j], point_begin, point_end):
-                        intersection = poly[j]
-                        if vect_mult_sign_z(point_begin, intersection, point_end) == 0:
-                            list_of_intersections.append(intersection)
-
+    def draw_edges(self, poly):
         for i in range(len(poly) - 1):
             self.scene.addLine(poly[i][0], poly[i][1], poly[i + 1][0], poly[i + 1][1], self.pen)
 

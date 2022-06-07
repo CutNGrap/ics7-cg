@@ -129,9 +129,6 @@ class Ui_MainWindow(object):
         self.checkBox_on_clip = QtWidgets.QCheckBox(self.centralwidget)
         self.checkBox_on_clip.setGeometry(QtCore.QRect(10, 470, 311, 31))
         self.checkBox_on_clip.setObjectName("checkBox_on_clip")
-        self.checkBox_fake_edges = QtWidgets.QCheckBox(self.centralwidget)
-        self.checkBox_fake_edges.setGeometry(QtCore.QRect(10, 770, 311, 31))
-        self.checkBox_fake_edges.setObjectName("checkBox_fake_edges")
         self.but_close_polygon = QtWidgets.QPushButton(self.centralwidget)
         self.but_close_polygon.setGeometry(QtCore.QRect(170, 720, 131, 51))
         font = QtGui.QFont()
@@ -223,7 +220,6 @@ class Ui_MainWindow(object):
 "ПКМ для добавления сторон отсекателя"))
         self.checkBox_on_clip.setText(_translate("MainWindow", "Добавлять вершины отсекаемого на стороне\n"
 "отсекателя"))
-        self.checkBox_fake_edges.setText(_translate("MainWindow", "Удалять ложные ребра"))
         self.but_close_polygon.setText(_translate("MainWindow", "Замкнуть\n"
 "отсекаемое"))
         self.lab_y.setText(_translate("MainWindow", "Y"))
