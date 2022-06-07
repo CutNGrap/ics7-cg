@@ -53,6 +53,20 @@ class Ui_MainWindow(object):
         font.setPointSize(11)
         self.but_clipping.setFont(font)
         self.but_clipping.setObjectName("but_clipping")
+        self.lab_centre_5 = QtWidgets.QLabel(self.centralwidget)
+        self.lab_centre_5.setGeometry(QtCore.QRect(10, 660, 301, 51))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.lab_centre_5.setFont(font)
+        self.lab_centre_5.setAlignment(QtCore.Qt.AlignCenter)
+        self.lab_centre_5.setObjectName("lab_centre_5")
+        self.lab_centre_4 = QtWidgets.QLabel(self.centralwidget)
+        self.lab_centre_4.setGeometry(QtCore.QRect(10, 610, 301, 51))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.lab_centre_4.setFont(font)
+        self.lab_centre_4.setAlignment(QtCore.Qt.AlignCenter)
+        self.lab_centre_4.setObjectName("lab_centre_4")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1269, 26))
@@ -74,3 +88,7 @@ class Ui_MainWindow(object):
         self.but_add_lines.setText(_translate("MainWindow", "Добавить отрезки на\n"
 "границах отсекателя"))
         self.but_clipping.setText(_translate("MainWindow", "Отсечь"))
+        self.lab_centre_5.setText(_translate("MainWindow", "Удерживайте CTRL, чтобы\n"
+"добавить горизонтальную линию"))
+        self.lab_centre_4.setText(_translate("MainWindow", "Удерживайте SHIFT, чтобы\n"
+"добавить вертикальную линию"))

@@ -17,6 +17,8 @@ class myScene(QtWidgets.QGraphicsScene):
         super().__init__(a, b, c, d)
         self.clip = None
         self.last_pos = None
+        self.horiz = False
+        self.vert = False
 
     def mousePressEvent(self, e):
         if win.is_line:
@@ -24,6 +26,24 @@ class myScene(QtWidgets.QGraphicsScene):
         elif win.is_clip and self.clip != None:
             self.removeItem(self.itemAt(self.clip, QTransform()))
             self.clip = None
+
+    def keyPressEvent(self, e):
+        # 16777248 shift горизонт
+        # 16777249 ctrl вертик
+        if not e.isAutoRepeat():
+            if e.key() == 16777248:
+                self.horiz = True
+            elif e.key() == 16777249:
+                self.vert = True
+
+    def keyReleaseEvent(self, e):
+        # 16777248 shift горизонт
+        # 16777249 ctrl вертик
+        if not e.isAutoRepeat():
+            if e.key() == 16777248:
+                self.horiz = False
+            elif e.key() == 16777249:
+                self.vert = False
     
 
     def mouseMoveEvent(self, e):
@@ -54,6 +74,12 @@ class myScene(QtWidgets.QGraphicsScene):
         if win.last_dot == None:
             win.last_dot = [round(x), round(y)]
         else:
+            if self.horiz and self.vert:
+                return
+            elif self.horiz and not self.vert:
+                x = win.last_dot[0]
+            elif not self.horiz and self.vert:
+                y = win.last_dot[1]
             win.lines.append([[win.last_dot[0], win.last_dot[1]], [x, y]])
             win.scene.addLine(win.last_dot[0], win.last_dot[1], x, y, win.pen)
             first = "({:d}, {:d})".format(win.last_dot[0], win.last_dot[1])
@@ -155,22 +181,24 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
         rect = self.rect
         self.pen.setColor(self.color_line)
 
-        vert = abs(self.rect[3] - self.rect[1]) * 0.8
-        hor = abs(self.rect[2] - self.rect[0]) * 0.8
+        vert = abs(self.rect[3] - self.rect[2]) * 0.8
+        hor = abs(self.rect[1] - self.rect[0]) * 0.8
 
         # hor
-        self.scene.add_point(rect[0] + hor, rect[1])
-        self.scene.add_point(rect[2] - hor, rect[1])
+        self.scene.add_point(rect[0] + hor, rect[2])
+        self.scene.add_point(rect[1] - hor, rect[2])
         self.scene.add_point(rect[0] + hor, rect[3])
-        self.scene.add_point(rect[2] - hor, rect[3])
+        self.scene.add_point(rect[1] - hor, rect[3])
 
         # vert
-        self.scene.add_point(rect[0], rect[1] + vert)
+        self.scene.add_point(rect[0], rect[2] + vert)
         self.scene.add_point(rect[0], rect[3] - vert)
-        self.scene.add_point(rect[2], rect[1] + vert)
-        self.scene.add_point(rect[2], rect[3] - vert)
+        self.scene.add_point(rect[1], rect[2] + vert)
+        self.scene.add_point(rect[1], rect[3] - vert)
 
     def clipping(self):
+        brush = QBrush(QColor(255, 255, 255))
+        self.scene.addRect(self.rect[0], self.rect[2], self.rect[1] - self.rect[0], self.rect[3] - self.rect[2], brush = brush)
         self.pen.setColor(self.color_fill)
         if self.rect == None:
             self.msg.setText("Не введен отсекатель!")
@@ -201,8 +229,8 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
                 return 1
             elif code_bit_and(code1, code2) !=0 : #полностью невидимый
                 return -1
-            
-            if code1[i] == code2[i]: #если обе точки видимы относительно текущей стороны отсекателя
+
+            if code1[i] == code2[i]:
                 continue
 
             if code1[i] == 0: #если первая вершина внутри

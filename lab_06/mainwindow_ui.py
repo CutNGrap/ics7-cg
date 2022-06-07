@@ -47,7 +47,7 @@ class Ui_MainWindow(object):
         self.but_color_bg.setFont(font)
         self.but_color_bg.setObjectName("but_color_bg")
         self.but_color_edge_def = QtWidgets.QPushButton(self.centralwidget)
-        self.but_color_edge_def.setGeometry(QtCore.QRect(190, 60, 101, 71))
+        self.but_color_edge_def.setGeometry(QtCore.QRect(190, 60, 111, 71))
         font = QtGui.QFont()
         font.setPointSize(11)
         self.but_color_edge_def.setFont(font)
@@ -60,7 +60,7 @@ class Ui_MainWindow(object):
         self.color_ind_bg.setTextInteractionFlags(QtCore.Qt.NoTextInteraction)
         self.color_ind_bg.setObjectName("color_ind_bg")
         self.but_color_bg_def = QtWidgets.QPushButton(self.centralwidget)
-        self.but_color_bg_def.setGeometry(QtCore.QRect(190, 140, 101, 71))
+        self.but_color_bg_def.setGeometry(QtCore.QRect(190, 140, 111, 71))
         font = QtGui.QFont()
         font.setPointSize(11)
         self.but_color_bg_def.setFont(font)
@@ -79,7 +79,7 @@ class Ui_MainWindow(object):
         self.but_color_fill.setFont(font)
         self.but_color_fill.setObjectName("but_color_fill")
         self.but_color_fill_def = QtWidgets.QPushButton(self.centralwidget)
-        self.but_color_fill_def.setGeometry(QtCore.QRect(190, 220, 101, 71))
+        self.but_color_fill_def.setGeometry(QtCore.QRect(190, 220, 111, 71))
         font = QtGui.QFont()
         font.setPointSize(11)
         self.but_color_fill_def.setFont(font)
@@ -181,14 +181,14 @@ class Ui_MainWindow(object):
 "цвет\n"
 "фона"))
         self.but_color_edge_def.setText(_translate("MainWindow", "По\n"
-"умочанию"))
+"умолчанию"))
         self.but_color_bg_def.setText(_translate("MainWindow", "По\n"
-"умочанию"))
+"умолчанию"))
         self.but_color_fill.setText(_translate("MainWindow", "Выбрать\n"
 "цвет\n"
 "закраски"))
         self.but_color_fill_def.setText(_translate("MainWindow", "По\n"
-"умочанию"))
+"умолчанию"))
         self.lab_x.setText(_translate("MainWindow", "X"))
         self.lab_y.setText(_translate("MainWindow", "Y"))
         self.but_add_dot.setText(_translate("MainWindow", "Добавить\n"
@@ -202,7 +202,7 @@ class Ui_MainWindow(object):
         self.checkBox.setText(_translate("MainWindow", "Включить задержку"))
         self.lab_centre_6.setText(_translate("MainWindow", "Изменения цвета контура и фона\n"
 "вступают в силу после очистки экрана"))
-        self.rad_edge.setText(_translate("MainWindow", "Добавить точку границы"))
-        self.rad_dot.setText(_translate("MainWindow", "Добавить затравочный пиксель"))
+        self.rad_edge.setText(_translate("MainWindow", "Рисовать границу"))
+        self.rad_dot.setText(_translate("MainWindow", "Выбрать затравочный пиксель"))
         self.but_close_2.setText(_translate("MainWindow", "Нарисовать область шириной\n"
 "в один пиксель"))

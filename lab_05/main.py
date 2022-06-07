@@ -182,6 +182,9 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def _color_fill(self):
         self.color_fill = QColorDialog.getColor()
+        a, b, c, d = self.color_fill.getRgb()
+        if a == b == c == 0:
+            self.color_fill.setBlue(1)
         self.color_ind_fill.setStyleSheet("background-color:" + self.color_fill.name() + ";border: 1px solid black;")
         
     def color_bg_def(self):
@@ -227,7 +230,6 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
         xm = self.find_max_x()
         delay_count = 0
         for edge in self.edges:
-            p.begin(image)
             # если горизонтальное ребро - дальше
             if edge[1] == edge[3]:
                 continue
@@ -237,6 +239,7 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
 
                 edge[0], edge[2] = edge[2], edge[0]
 
+            p.begin(image)
             y = edge[1]
             end_y = edge[3]
             

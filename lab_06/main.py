@@ -272,7 +272,7 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
             point = stack.pop()
             x, y = point[0], point[1]
 
-            # заполняем интервал вправо от затравки (включая затравку)
+            # заполняем интервал вправо от затравки
             # и запоминаем крайний правый пиксел
             x_cur = x
             while self.get_color(x_cur, y) != self.color_edge and x_cur < self.rcontent.width() - 1:
@@ -280,26 +280,27 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
                 x_cur += 1
             xr = x_cur - 1
 
-            # заполняем интервал влево от затравки (не включая затравку)
+            # заполняем интервал влево от затравки 
             # и запоминаем крайний левый пиксель
             x_cur = x - 1
             while self.get_color(x_cur, y) != self.color_edge and x_cur > 0:
                 self.set_color(x_cur, y, self.color_fill, p)
                 x_cur -= 1
             xl = x_cur + 1
+            
             # Поиск новых затравочных пикселей в интервале xl <= x <= xr на двух соседних строках y+1, y-1
             for y_ in [y + 1, y - 1]:
                 x = xl
                 while x <= xr:
-                    # флаг перехождения затравки
-                    flag = 0
+                    
+                    flag = 0 
                     # ищем (хоть один или крайний правый) затравочный пиксель
                     while ((self.get_color(x, y_) != self.color_edge) and
                            (self.get_color(x, y_) != self.color_fill) and
                            (x <= xr)) and x < self.rcontent.width() - 1 and y_ > 0 and y_ < self.rcontent.height() - 1:                                                      ###
                         flag = 1
                         x += 1
-                    # если такой нашелся, то помещаем его в стек
+
                     if flag:
                         # дошли до конца интервала
                         if ((self.get_color(x, y_) != self.color_edge) and
@@ -310,18 +311,16 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
                         else:
                             stack.append([x - 1, y_])
 
-                    # Поиск нового интервала в случае прерывания текущего интервала (произойдет, если  x<xr)
-                    # запоминаем абсциссу текущего пиксела
                     xn = x
-                    # flag = 0
-                    while (((self.get_color(x, y_) == self.color_edge) or
-                           (self.get_color(x, y_) == self.color_fill)) and
-                           (x < xr)) and x < self.rcontent.width() - 1:
+                    # Поиск нового интервала в случае прерывания текущего интервала
+                    while (((self.get_color(x, y_) == self.color_edge) and\
+                              (self.get_color(x, y_) == self.color_fill)) and\
+                              (x < xr)) and x < self.rcontent.width() - 1:
                         x += 1
-                    # убедимся, что координата абсциссы пикселя увеличилась (чтобы не зациклиться)
                     if x == xn:
                         x += 1
-            # если выбрана опция "с задержкой",
+
+            # задержка
             if self.checkBox.isChecked() and delay_count == DEL_COUNT:
                 self.scene.clear()
                 pix.convertFromImage(self.image)

@@ -6,21 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1269</width>
-    <height>948</height>
+    <width>1316</width>
+    <height>1020</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Лабораторная работа #6</string>
+   <string>Лабораторная работа #9</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QGraphicsView" name="graphicsView">
     <property name="geometry">
      <rect>
-      <x>320</x>
+      <x>330</x>
       <y>0</y>
-      <width>951</width>
-      <height>891</height>
+      <width>941</width>
+      <height>931</height>
      </rect>
     </property>
    </widget>
@@ -28,7 +28,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>60</y>
+      <y>10</y>
       <width>71</width>
       <height>71</height>
      </rect>
@@ -50,8 +50,8 @@
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>60</y>
-      <width>91</width>
+      <y>10</y>
+      <width>111</width>
       <height>71</height>
      </rect>
     </property>
@@ -63,14 +63,355 @@
     <property name="text">
      <string>Выбрать
 цвет
-контура</string>
+отсекателя</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="but_color_line">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>90</y>
+      <width>111</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Выбрать
+цвет
+отрезков</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="but_color_edge_def">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>10</y>
+      <width>101</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>По
+умочанию</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="color_ind_line">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>71</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="textInteractionFlags">
+     <set>Qt::NoTextInteraction</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="but_color_line_def">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>90</y>
+      <width>101</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>По
+умочанию</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="color_ind_clipped">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>170</y>
+      <width>71</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="textInteractionFlags">
+     <set>Qt::NoTextInteraction</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="but_color_clipped">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>170</y>
+      <width>111</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Выбрать
+цвет
+отсеченных</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="but_color_clipped_def">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>170</y>
+      <width>101</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>По
+умочанию</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="but_close_clip">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>720</y>
+      <width>141</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Замкнуть
+отсекатель</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lab_centre_4">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>500</y>
+      <width>301</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Удерживайте CTRL, чтобы
+добавить вертикальную линию</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lab_centre_5">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>550</y>
+      <width>301</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Удерживайте SHIFT, чтобы
+добавить горизонтальную линию</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="but_clip">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>800</y>
+      <width>301</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Отсечь</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="but_clear">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>850</y>
+      <width>301</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Очистить экран</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="listWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>250</y>
+      <width>301</width>
+      <height>151</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lab_centre_6">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>400</y>
+      <width>321</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Для добавления ребра отсекаемого
+многоугольника на стороне отсекателя
+выберите сторону отсекателя из списка</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lab_centre_7">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>890</y>
+      <width>331</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>ЛКМ для добавления сторон отсекаемого
+ПКМ для добавления сторон отсекателя</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_on_clip">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>470</y>
+      <width>311</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Добавлять вершины отсекаемого на стороне
+отсекателя</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_fake_edges">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>770</y>
+      <width>311</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Удалять ложные ребра</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="but_close_polygon">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>720</y>
+      <width>131</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Замкнуть
+отсекаемое</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="line_x">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>370</y>
+      <x>60</x>
+      <y>660</y>
       <width>121</width>
       <height>21</height>
      </rect>
@@ -84,173 +425,11 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="but_color_bg">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>140</y>
-      <width>91</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>11</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Выбрать
-цвет
-фона</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="but_color_edge_def">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>60</y>
-      <width>111</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>11</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>По
-умолчанию</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="color_ind_bg">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>140</y>
-      <width>71</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="autoFillBackground">
-     <bool>true</bool>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <property name="textInteractionFlags">
-     <set>Qt::NoTextInteraction</set>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="but_color_bg_def">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>140</y>
-      <width>111</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>11</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>По
-умолчанию</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="color_ind_fill">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>220</y>
-      <width>71</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="autoFillBackground">
-     <bool>true</bool>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <property name="textInteractionFlags">
-     <set>Qt::NoTextInteraction</set>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="but_color_fill">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>220</y>
-      <width>91</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>11</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Выбрать
-цвет
-закраски</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="but_color_fill_def">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>220</y>
-      <width>111</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>11</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>По
-умолчанию</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lab_x">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>370</y>
-      <width>41</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>10</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>X</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
    <widget class="QLabel" name="lab_y">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>400</y>
+      <x>10</x>
+      <y>690</y>
       <width>41</width>
       <height>21</height>
      </rect>
@@ -267,11 +446,43 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
+   <widget class="QPushButton" name="but_add_dot">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>660</y>
+      <width>101</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Добавить
+вершину</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="rad_clip">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>600</y>
+      <width>291</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Вершина отсекателя</string>
+    </property>
+   </widget>
    <widget class="QLineEdit" name="line_y">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>400</y>
+      <x>60</x>
+      <y>690</y>
       <width>121</width>
       <height>21</height>
      </rect>
@@ -285,183 +496,38 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="but_add_dot">
+   <widget class="QRadioButton" name="rad_polygon">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>370</y>
-      <width>101</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>11</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Добавить
-точку</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="but_close">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>530</y>
-      <width>271</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>11</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Замкнуть фигуру</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lab_centre_4">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>430</y>
-      <width>301</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>10</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Удерживайте SHIFT, чтобы
-добавить вертикальную линию</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lab_centre_5">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>480</y>
-      <width>301</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>10</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Удерживайте CTRL, чтобы
-добавить горизонтальную линию</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="but_clear">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>680</y>
-      <width>271</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>11</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Очистить экран</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>650</y>
-      <width>151</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Включить задержку</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lab_centre_6">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>0</y>
-      <width>301</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>10</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Изменения цвета контура и фона
-вступают в силу после очистки экрана</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="rad_edge">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>310</y>
-      <width>291</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Рисовать границу</string>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="rad_dot">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>340</y>
+      <x>20</x>
+      <y>630</y>
       <width>241</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>Выбрать затравочный пиксель</string>
+     <string>Вершина отсекаемого</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="but_close_2">
+   <widget class="QLabel" name="lab_x">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>580</y>
-      <width>271</width>
-      <height>61</height>
+      <y>660</y>
+      <width>41</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>11</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">
-     <string>Нарисовать область шириной
-в один пиксель</string>
+     <string>X</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>
@@ -470,7 +536,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1269</width>
+     <width>1316</width>
      <height>26</height>
     </rect>
    </property>
