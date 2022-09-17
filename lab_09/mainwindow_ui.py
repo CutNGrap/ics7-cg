@@ -195,16 +195,16 @@ class Ui_MainWindow(object):
 "отсекателя"))
         self.but_color_line.setText(_translate("MainWindow", "Выбрать\n"
 "цвет\n"
-"отрезков"))
+"отсекаемого"))
         self.but_color_edge_def.setText(_translate("MainWindow", "По\n"
-"умочанию"))
+"умолчанию"))
         self.but_color_line_def.setText(_translate("MainWindow", "По\n"
-"умочанию"))
+"умолчанию"))
         self.but_color_clipped.setText(_translate("MainWindow", "Выбрать\n"
 "цвет\n"
-"отсеченных"))
+"отсеченного"))
         self.but_color_clipped_def.setText(_translate("MainWindow", "По\n"
-"умочанию"))
+"умолчанию"))
         self.but_close_clip.setText(_translate("MainWindow", "Замкнуть\n"
 "отсекатель"))
         self.lab_centre_4.setText(_translate("MainWindow", "Удерживайте CTRL, чтобы\n"

@@ -165,14 +165,14 @@ class Ui_MainWindow(object):
 "цвет\n"
 "отрезков"))
         self.but_color_edge_def.setText(_translate("MainWindow", "По\n"
-"умочанию"))
+"умолчанию"))
         self.but_color_line_def.setText(_translate("MainWindow", "По\n"
-"умочанию"))
+"умолчанию"))
         self.but_color_clipped.setText(_translate("MainWindow", "Выбрать\n"
 "цвет\n"
 "отсеченных"))
         self.but_color_clipped_def.setText(_translate("MainWindow", "По\n"
-"умочанию"))
+"умолчанию"))
         self.but_close.setText(_translate("MainWindow", "Замкнуть отсекатель"))
         self.lab_centre_4.setText(_translate("MainWindow", "Удерживайте CTRL, чтобы\n"
 "добавить вертикальную линию"))

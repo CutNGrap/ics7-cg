@@ -302,6 +302,12 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
         self.but_close_2.clicked.connect(self.draw_parallel)
         self.but_close.clicked.connect(self.close)
         self.but_fill.clicked.connect(self.cut)
+        self.but_color_clipped.clicked.connect(self.choose_color_clipped)
+        self.but_color_edge.clicked.connect(self.choose_color_edge)
+        self.but_color_line.clicked.connect(self.choose_color_line)
+        self.but_color_clipped_def.clicked.connect(self.color_clipped_def)
+        self.but_color_line.clicked.connect(self.color_line_def)
+        self.but_color_edge_def.clicked.connect(self.color_edge_def)
 
     def button_lock(self, arr):
         for i in arr:
@@ -392,12 +398,12 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
                     continue
                 # а если невидим относительно текущей стороны, значит является полностью невидимым
                 else:
-                    self.scene.addLine(point1[0], point1[1], point2[0], point2[1])
+                    return
             # иначе находим точку пересечения отрезка и текущего ребра
             else:
                 t = -Wsm / Dsm
 
-            # если точка пересечения относится к нижней области видимости
+            # если точка пересечения относится к началу видимой области
             if Dsm > 0:
                 # если отрезок пересекает ребро за конечной точкой отрезка - невидимый
                 if t > 1:
@@ -405,7 +411,7 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
                 # иначе обновляем нижнюю видимую точку в случае необходимости
                 else:
                     t_beg = max(t_beg, t)
-            # если точка пересечения относится к верхней области видимости - по аналогии
+            # если точка пересечения относится к концу видимой области - по аналогии
             else:
                 if t < 0:
                     return 

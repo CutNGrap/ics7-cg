@@ -325,6 +325,12 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
         self.but_close_polygon.clicked.connect(self.close_polygon)
         self.but_add_dot.clicked.connect(self.init_dot_add)
         self.but_clip.clicked.connect(self.cut)
+        self.but_color_clipped.clicked.connect(self.choose_color_clipped)
+        self.but_color_edge.clicked.connect(self.choose_color_edge)
+        self.but_color_line.clicked.connect(self.choose_color_line)
+        self.but_color_clipped_def.clicked.connect(self.color_clipped_def)
+        self.but_color_line.clicked.connect(self.color_line_def)
+        self.but_color_edge_def.clicked.connect(self.color_edge_def)
 
     
     def cut(self):
